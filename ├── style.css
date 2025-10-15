@@ -1,74 +1,103 @@
 /* ===== 整體頁面設定（讓 footer 永遠貼底） ===== */
 html, body {
-    height: 100%;                            /* 滿版高度，讓 footer 可以黏在最底部 */
-    margin: 0;                               /* 移除預設外距 */
-    padding: 0;                              /* 移除預設內距 */
-    display: flex;                           /* 使用 flex 排版 */
-    flex-direction: column;                 /* 垂直排列（header → main → footer） */
-    font-family: "Noto Sans TC", sans-serif; /* 使用思源黑體字型，適合中文 */
-    background-color: #fff;                  /* 頁面背景色為白色 */
-    color: #333;                             /* 主要文字顏色為深灰 */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: "Noto Sans TC", sans-serif;
+    background-color: #fff;
+    color: #333;
 }
 
 /* ===== 頁首區塊 header ===== */
 header {
-    background-color: #fcd34d;              /* 淡黃色背景 */
-    padding: 20px;                          /* 四周內距 */
-    text-align: center;                     /* 內容置中 */
+    background-color: #fcd34d;  /* 淡黃色背景 */
+    padding: 20px 0;
+}
+
+/* ===== 導覽列 nav ===== */
+nav {
+    display: flex;
+    justify-content: center;   /* 水平置中 */
+    gap: 25px;                 /* 連結之間的距離 */
 }
 
 /* ===== 導覽列連結樣式 nav a ===== */
 nav a {
-    margin: 0 15px;                         /* 左右間距 */
-    text-decoration: none;                 /* 移除底線 */
-    color: #1d4ed8;                         /* 藍色文字（hover 時可補變化） */
+    text-decoration: none;
+    color: #1d4ed8;            /* 藍色文字 */
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* ===== 滑鼠懸停效果 ===== */
+nav a:hover {
+    background-color: #1d4ed8; /* 背景變藍 */
+    color: white;              /* 文字變白 */
+}
+
+/* ===== 目前頁面（active）樣式，可手動在該頁加 class="active" ===== */
+nav a.active {
+    background-color: #1d4ed8;
+    color: white;
 }
 
 /* ===== 主內容區塊 main ===== */
 main {
-    flex: 1;                                /* 撐開所有可用空間，讓 footer 貼底 */
-    padding: 30px;                          /* 四周內距 */
+    flex: 1;
+    padding: 30px;
 }
 
 /* ===== 主標題樣式 h1 ===== */
 h1 {
-    color: #111827;                         /* 更深的灰色文字，突顯標題 */
+    color: #111827;
 }
 
 /* ===== 圖片樣式 img ===== */
 img {
-    display: block;                         /* 變成區塊元素 */
-    max-width: 100%;                        /* 圖片不會超過容器寬度 */
-    height: auto;                           /* 高度自動等比例縮放 */
-    margin: 20px auto;                      /* 垂直間距 + 水平置中 */
-    border-radius: 10px;                    /* 圓角邊框 */
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* ✅ 輕微陰影讓圖片更有立體感 */
 }
 
 /* ===== 表單欄位（input、textarea） ===== */
 form input,
 form textarea {
-    width: 100%;                            /* 滿版寬度 */
-    padding: 10px;                          /* 內距 */
+    width: 100%;
+    padding: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;                 /* 淺灰邊框 */
-    border-radius: 5px;                     /* 圓角邊框 */
-    box-sizing: border-box;                 /* 包含 padding 不超出寬度 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
 /* ===== 表單按鈕樣式 ===== */
 form button {
-    padding: 10px 20px;                     /* 上下 10px、左右 20px 的內距 */
-    background-color: #f59e0b;              /* 橘色背景 */
-    color: white;                           /* 白色文字 */
-    border: none;                           /* 移除邊框 */
-    border-radius: 5px;                     /* 圓角 */
-    cursor: pointer;                        /* 滑鼠變成小手指 */
+    padding: 10px 20px;
+    background-color: #f59e0b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #d97706; /* 懸停時顏色略深 */
 }
 
 /* ===== 頁尾 footer ===== */
 footer {
-    background-color: #fde68a;              /* 更淡的黃色背景 */
-    text-align: center;                     /* 置中對齊 */
-    padding: 20px;                          /* 四周內距 */
+    background-color: #fde68a;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #555;
 }
